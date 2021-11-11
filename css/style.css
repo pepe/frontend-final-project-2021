@@ -17,33 +17,6 @@ html {
   body > header:nth-child(1) > h1:nth-child(1) {
     margin: 0px;
   }
-  
-#wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-#wrapper img {
-  width: 50%;
-  margin: 1rem 0 2rem 1rem;
-}
-
-#wrapper > aside:nth-child(1) {
-  padding: 1rem;
-}
-
-#wrapper > main:nth-child(2) > p:nth-child(2) {
-  width: 75%;
-}
-
-
-#wrapper > main:nth-child(2) {
-  display: flex;
-}
-
-main {
-  width: 85%;
-}
 
 #text-wrapper {
   padding: 1rem;
@@ -51,4 +24,9 @@ main {
 
 footer {
   text-align: center;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
 }
