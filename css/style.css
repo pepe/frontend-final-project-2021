@@ -30,3 +30,7 @@ aside {
   display: flex;
   flex-direction: column;
 }
+
+form {
+  margin: 1rem 3rem;
+}
