@@ -50,19 +50,6 @@
       </form>
     </main>  
   </div>
-  <script>
-    function enableBtn() {
-      var nl = document.getElementsByName("nick")[0].value.length;
-      var ml = document.getElementsByName("message")[0].value.length;
-      var btn = document.getElementById("post-btn"); 
-      if ((nl > 0) && (ml > 0)) {
-        btn.disabled = false
-      } else {
-        btn.disabled = "disabled"
-      }
-    }
-  </script>
-  <script src="js/vendor/modernizr-3.11.8.min.js"></script>
   <script src="js/app.js"></script>
 
 </body>
