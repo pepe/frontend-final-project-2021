@@ -3,18 +3,9 @@ html {
     font-family: sans-serif;
     font-size: 16px;
   }
-  
-  body > header:nth-child(1) {
-    background-color: black;
-    color: white;
-    padding: 1rem;
-  }
+
   
   body {
-    margin: 0px;
-  }
-  
-  body > header:nth-child(1) > h1:nth-child(1) {
     margin: 0px;
   }
 
@@ -33,4 +24,20 @@ aside {
 
 form {
   margin: 1rem 3rem;
+}
+
+.myCoolButton > #1{
+    background: #85144b;
+}
+
+.myCoolButton > #2{
+    background: #fcad03;
+}
+
+.myCoolButton > #3{
+    background: #148521;
+}
+
+.myCoolButton > #4{
+    background: #b03810;
 }
