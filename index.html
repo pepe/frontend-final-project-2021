@@ -26,7 +26,542 @@
 </head>
 
 <body>
+  
+  Picnic CSS
+Picnic CSS is a lightweight and beautiful CSS library
 
+Buttons
+They can be of different colors and types:
+
+    
+<button>Button</button>
+<button class='success'>Success</button>
+<button class='warning'>Warning</button>
+<button class='error'>Error</button>
+<button disabled>Disabled</button>
+   
+<button>Button</button>
+<a class="button">Link</a>
+<input value="Submit" type="submit">
+<label>
+  <input type="checkbox">
+  <span class="toggle button">Toggle</span>
+</label>
+Pseudo buttons
+Allows for seemingly links to behave as buttons:
+
+   
+<button class="pseudo">Button</button>
+<a class="pseudo button">Link</a>
+<input class="pseudo" value="Submit" type="submit">
+<label>
+    <input type="checkbox">
+    <span class="toggle pseudo button">Toggle</span>
+</label>
+Hack it
+You only have to define a single color base for new colors. The :hover and :active status are handled as overlays for consistency and simplicity
+
+<button class="myCoolButton">My Cool Button</button>
+.myCoolButton {
+    background: #85144b;
+}
+To create a larger button you only need to make the font inside it larger. The paddings are set in em so the whole button stays in great shape:
+
+
+
+<button class="mainButton">Large button</button><br>
+<button>Normal button</button><br>
+<button class="shyButton">Small button</button>
+.mainButton {
+    font-size: 1.5em;
+}
+.shyButton {
+    font-size: .75em;
+}
+To change the color of the pseudo-color on hover:
+
+<button class="pseudo cool">Pseudo personal</button>
+.cool:hover,
+.cool:active,
+.cool:focus {
+    background: #cff;
+}
+Card
+A card is a self-contained, replicable type. It works great with other of its kind. It can consist of only one element or many of them:
+
+A really simple h3
+<article class="card">
+  <header>
+    <h3>A really simple h3</h3>
+  </header>
+</article>
+<article class="card">
+  <header>
+    <button>Love</button>
+    <button class="dangerous">Hate</button>
+  </header>
+</article>
+Forest
+<article class="card">
+  <header>
+    <h3>Forest</h3>
+  </header>
+  <footer>
+    <button>Like</button>
+  </footer>
+</article>
+
+Misty Forest
+
+Misty Forest
+<div class="flex two">
+  <div>
+    <article class="card">
+      <img src="/img/forest.jpg">
+      <footer>
+        <h3>Misty Forest</h3>
+        <button>Like</button>
+      </footer>
+    </article>
+  </div>
+  <div>
+    <article class="card">
+      <img src="/img/forest.jpg">
+      <footer>
+        <h3>Misty Forest</h3>
+        <button>Like</button>
+      </footer>
+    </article>
+  </div>
+</div>
+Checkbox
+Display an inline checkbox with a nice default style
+
+Check me out (;
+<label>
+  <input type="checkbox">
+  <span class="checkable">Check me out (;</span>
+</label>
+Uncheck me
+<label>
+  <input type="checkbox" checked>
+  <span class="checkable">Uncheck me</span>
+</label>
+Usage
+This plugin, while experimental in the past, is mature now. Use a normal checkbox followed by any other element with the class checkable. The element that follows the checkbox will receive the pseudo classes so it should be able to do so. We recommend a <span> or <label>. Here we use the label around them for making the <input> change state when you click on this folowing element.
+
+Checkbox text
+<label>
+  <input type="checkbox">
+  <span class="checkable">Checkbox text</span>
+</label>
+But you can also use a label and reference the original input:
+
+Checkbox text
+<input id="checkboxdemo" type="checkbox">
+<label for="checkboxdemo" class="checkable">Checkbox text</label>
+JavaScript
+You do not need javascript since we are using the native elements and not setting display: none purposefully. However, you can still use javascript as normal to retrieve the checked elements.
+
+Accept TOS 
+// Pure javascript
+document.querySelector('form').onsubmit = function(e){
+  e.preventDefault();
+  alert(document.querySelector('input.tos').checked);
+}
+
+// jQuery
+$("form").on('submit', function(e){
+  e.preventDefault();
+  alert($('input.tos').is(':checked'));
+});
+Drop image
+Allows you to add a file input element that can receive an image drop and clicks with native elements. However, it needs some javascript to show the dropped image:
+
+<div style="width: 200px"> <!-- this div just for demo display -->
+  <label class="dropimage">
+    <input title="Drop image or click me" type="file">
+  </label>
+</div>
+JavaScript
+This is the javascript you need for multiple elements:
+
+document.addEventListener("DOMContentLoaded", function() {
+  [].forEach.call(document.querySelectorAll('.dropimage'), function(img){
+    img.onchange = function(e){
+      var inputfile = this, reader = new FileReader();
+      reader.onloadend = function(){
+        inputfile.style['background-image'] = 'url('+reader.result+')';
+      }
+      reader.readAsDataURL(e.target.files[0]);
+    }
+  });
+});
+Hack it
+Do you want round pictures? No problem, just do this:
+
+.profile {
+  border-radius: 50%;     /* Make it a circle */
+  padding-bottom: 100%;   /* 100% height (ratio 1) */
+}
+To get this:
+
+<div style="width: 200px"> <!-- this div just for demo display -->
+  <label class="dropimage profile">
+    <input name="filea" title="Drop image or click me" type="file">
+  </label>
+</div>
+Make it smaller
+
+.miniprofile {
+  border-radius: 50%;    /* Make it a circle */
+  margin: 0 auto;        /* Center horizontally */
+  width: 60%;            /* 60% width */
+  padding-bottom: 60%;   /* 60% height */
+}
+<div style="width: 200px"> <!-- this div just for demo display -->
+  <label class="dropimage miniprofile">
+    <input name="filea" title="Drop image or click me" type="file">
+  </label>
+</div>
+Grids
+Note: the old .row and .grid have been replaced by the new .flex. You can still see the old documentation in github.
+
+Note 2: the children <span> are only for display purposes; you can put anything you want instead of them
+
+A flexbox grid implementation with breakpoints. Choose when to change your layout depending on your content instead of the device you want to show as recommended by Google's RWD, by Smashing Magazine's Logical Breakpoints and Picnic CSS.
+
+You can create complex, flexible layouts with it. Just resize the browser to see how powerful it is:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+<div class="flex two four-500 six-800 demo">
+  <div><span>1</span></div>
+  <div><span>2</span></div>
+  <div class="full half-500 third-800"><span>3</span></div>
+  <div><span>4</span></div>
+  <div><span>5</span></div>
+  <div><span>6</span></div>
+  <div><span>7</span></div>
+  <div><span>8</span></div>
+  <div><span>9</span></div>
+  <div class="off-half off-fourth-500 off-sixth-800"><span>10</span></div>
+</div>
+Equally sized columns
+Let's start through the basics though. Just a container with equally sized children:
+
+1
+2
+3
+4
+5
+6
+<div class="flex demo">
+  <div><span>1</span></div>
+  <div><span>2</span></div>
+  <div><span>3</span></div>
+  <div><span>4</span></div>
+  <div><span>5</span></div>
+  <div><span>6</span></div>
+</div>
+With the class flex, smaller children will be spaced equally to fill all of the content. However, this only works with small children. If you have children bigger than their corresponding width (1/6th in the above) they will not be restricted:
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+2
+<div class="flex demo">
+  <div><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></div>
+  <div><span>2</span></div>
+</div>
+To fix this, manually set the number of columns as explained in the next point.
+
+Column count
+If instead you prefer certain column count, such as in a gallery where it can span several rows, use a counter besides the class flex:
+
+1
+2
+3
+4
+5
+<div class="flex three demo">
+  <div><span>1</span></div>
+  <div><span>2</span></div>
+  <div><span>3</span></div>
+  <div><span>4</span></div>
+  <div><span>5</span></div>
+</div>
+The columns will keep being equally spaced, but this time with the width corresponding to the column counter. You can use any number as a class from one to twelve:
+
+one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+ten
+eleven
+twelve
+Most grid systems use a 12 grid system, but we wanted to use a more flexible system and allow you to choose the grid size.
+
+Responsive column count
+We follow a mobile-first design. Put the number of columns for mobile as explained in the previous point. Then, when things get too stretched, add a column counter with the number of pixels in 100 increments as follows:
+
+1
+2
+3
+4
+5
+6
+<div class="flex two three-600 six-1200 demo">
+  <div><span>1</span></div>
+  <div><span>2</span></div>
+  <div><span>3</span></div>
+  <div><span>4</span></div>
+  <div><span>5</span></div>
+  <div><span>6</span></div>
+</div>
+The number after the column count as in -600 or -1200 are the breakpoints. When the website width is over that number, that column count will be used instead of the previous. If we use two or more, the largest column count will be used.
+
+For example, in a desktop with a screen of 1920x1080px the previous one will display 6 columns. Any screen from 600px to 1200px will display three columns and smaller than 600px will display 2 columns.
+
+The increment is 100px and starts in 500px up to 2000px both included. You can use any of those suffixes for the column count class:
+
+-500
+-600
+-700
+-800
+-900
+-1000
+-1100
+-1200
+-1300
+-1400
+-1500
+-1600
+-1700
+-1800
+-1900
+-2000
+Remainders
+You can also modify the remainder content as you wish with a couple of utility classes. This is the default:
+
+1
+2
+3
+4
+5
+<div class="flex three demo">
+  <div><span>1</span></div>
+  <div><span>2</span></div>
+  <div><span>3</span></div>
+  <div><span>4</span></div>
+  <div><span>5</span></div>
+</div>
+You can grow them:
+
+1
+2
+3
+4
+5
+<div class="flex three grow demo">
+  <div><span>1</span></div>
+  <div><span>2</span></div>
+  <div><span>3</span></div>
+  <div><span>4</span></div>
+  <div><span>5</span></div>
+</div>
+Or you can center them:
+
+1
+2
+3
+4
+5
+<div class="flex three center demo">
+  <div><span>1</span></div>
+  <div><span>2</span></div>
+  <div><span>3</span></div>
+  <div><span>4</span></div>
+  <div><span>5</span></div>
+</div>
+Children sizing
+Now that we know how the parent (or grid) can modify itself and the elements below them, the children can also go rebel and behave on their own. Say that a child wants to be half of the size of its parent element. Easy, just add the class half:
+
+1
+2
+3
+<div class="flex four demo">
+  <div><span>1</span></div>
+  <div><span>2</span></div>
+  <div class="half"><span>3</span></div>
+</div>
+We have many classes like those. They are the size relative to the parent grid:
+
+full
+half
+third
+two-third
+fourth
+three-fourth
+fifth
+two-fifth
+three-fifth
+four-fifth
+sixth
+none
+The class none hides the element, useful for responsive layouts
+
+Responsive children
+They can also be fine-tuned in a way similar to the above:
+
+1
+2
+3
+<div class="flex four demo">
+  <div class="half fourth-1000"><span>1</span></div>
+  <div class="half fourth-1000"><span>2</span></div>
+  <div class="full half-1000"><span>3</span></div>
+</div>
+Offsets
+The children can also have one offset (empty space) before it. They are built adding the class off-SIZE, similar to the size but prefixing off-:
+
+1
+2
+3
+<div class="flex four demo">
+  <div><span>1</span></div>
+  <div><span>2</span></div>
+  <div class="off-fourth"><span>3</span></div>
+</div>
+We have many classes like those. They are the size of the offset relative to the parent grid:
+
+off-none
+off-half
+off-third
+off-two-third
+off-fourth
+off-three-fourth
+off-fifth
+off-two-fifth
+off-three-fifth
+off-four-fifth
+off-sixth
+Note: off-none is useful for making responsive layouts as explained in the next point.
+
+Responsive offsets
+They can also have the minimum screen size when they start working:
+
+1
+2
+3
+<div class="flex three four-1000 demo">
+  <div><span>1</span></div>
+  <div><span>2</span></div>
+  <div class="off-fourth-800"><span>3</span></div>
+</div>
+The main difference with the width classes is that it includes a none in case you want to hide the offset at certain sizes and that it doesn't include a full
+
+Input
+Simple (or not) text form elements:
+
+
+Email
+Password
+Textarea
+<fieldset class="flex two">
+  <label><input type="email" placeholder="Email"></label>
+  <label><input type="password" placeholder="Password"></label>
+</fieldset>
+<textarea placeholder="Textarea"></textarea>
+Label
+An element to display some short relevant information on the side of other element
+
+header 1 
+header 2 
+header 3 
+header 4 
+paragraph 
+
+<h1>header 1 <span class="label">Normal</span></h1>
+<h2>header 2 <span class="label success">Success</span></h2>
+<h3>header 3 <span class="label warning">Warning</span></h3>
+<h4>header 4 <span class="label error">Error</span></h4>
+<p>paragraph <span class="label">Normal</span></p>
+Modal
+The modal is pure CSS, which makes the HTML quite ugly actually. However it does work. To try it, press the button:
+
+×
+<label for="modal_1" class="button">Show modal</label>
+
+<div class="modal">
+  <input id="modal_1" type="checkbox" />
+  <label for="modal_1" class="overlay"></label>
+  <article>
+    <header>
+      <h3>Great offer</h3>
+      <label for="modal_1" class="close">&times;</label>
+    </header>
+    <section class="content">
+      We have a special offer for you. I am sure you will love it! However this does look spammy...
+    </section>
+    <footer>
+      <a class="button" href="#">See offer</a>
+      <label for="modal_1" class="button dangerous">
+        Cancel
+      </label>
+    </footer>
+  </article>
+</div>
+JavaScript
+As always, there is no javascript. However, a little bit of javascript could enhance the experience allowing to close the modal by pressing ESC.
+
+document.onkeydown = function(e){
+  if (e.keyCode == 27) {
+    var mods = document.querySelectorAll('.modal > [type=checkbox]');
+    [].forEach.call(mods, function(mod){ mod.checked = false; });
+  }
+}
+Toggling the modal with javascript
+If you want to be able to toggle the modal with javascript, you can use the following:
+
+document.getElementById('modal_1').checked = true; // open modal
+document.getElementById('modal_1').checked = false; // close modal
+Nav
+A responsive, pure css navigation menu:
+
+On these smaller versions it might have small glitches. Please see the top, page-wide nav to see the actual effect.
+
+ Picnic CSS 
+<div style="overflow: hidden;height: 250px;"> <!-- For Demo, Represents the body -->
+
+<nav class="demo">
+  <a href="#" class="brand">
+    <img class="logo" src="/img/advise.png" />
+    <span>Picnic CSS</span>
+  </a>
+
+  <!-- responsive-->
+  <input id="bmenub" type="checkbox" class="show">
+  <label for="bmenub" class="burger pseudo button">menu</label>
+
+  <div class="menu">
+    <a href="#" class="pseudo button icon-picture">Demo</a>
+    <a href="#" class="button icon-puzzle">Plugins</a>
+  </div>
+</nav>
+
+</div>
   <header>
     <h1>Hi I am pepe, and this is my portfolio.</h1>
   </header>
