@@ -1,0 +1,330 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+label{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    margin-bottom: .3rem;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+.text-white{
+    color: white;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.px-2{
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+.text-uppercase{
+    text-transform: uppercase;
+}
+
+.flex{
+    display: flex;
+}
+
+.ai-center{
+    align-items: center;
+}
+
+.jc-center{
+    justify-content: center;
+}
+
+.jc-sb{
+    justify-content: space-between;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.font-arial{
+ font-family: Arial, Helvetica, sans-serif;   
+}
+
+.btn-outline{
+    display: inline-block;
+    padding: .7rem 2rem;
+    background: transparent;
+    text-decoration: none;
+    font-size: 14px; 
+    letter-spacing: .1rem;
+    transition: .3s;
+}
+
+.btn-outline-light{
+    color: white;
+    border: 1px solid white;
+}
+
+.btn-outline-dark{
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.btn-outline-light:hover{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+    color: black;
+}
+
+.btn-outline-dark:hover{
+    background: black;
+    color: white;
+}
+
+.list{
+    list-style: none;
+}
+
+.list li{ 
+    margin-top: 1.5rem;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* welcome page */
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0)), url(./img/profile.jpg);
+    background-size: cover;
+    background-position: center;
+    overflow: auto;
+}
+
+.banner-content p{
+    margin-top: .5rem;
+}
+
+.banner-content a{
+    margin-top: 1rem;
+}
+
+textarea{ 
+    font-size: 14px;
+}
+
+.card.flex > div{
+    width: 100%;
+}
+
+.form-control{
+    width: 100%;
+    padding: .7rem 1rem;
+    border-radius: 5px;
+    border: 1px solid rgb(160, 160, 160);
+    outline: none;
+}
+
+.form-control:focus-visible{
+    border: 1px solid rgb(27, 27, 27);
+}
+
+form > div{
+    margin: 1rem 0;
+}
+
+/* navbar */
+
+.navbar{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 10vh;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.nav-btn{
+    text-decoration: none;
+    color: white; 
+    padding: .4rem 1rem;
+    margin: 0;
+    font-size: 16px;
+    position: relative;
+    transition: .3s;
+}
+
+.nav-btn::before{
+    transition: .2s;
+    content: "";
+    position: absolute;
+    border-radius: 4px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 1%;
+    width: 1%;
+    background: rgb(255, 255, 255, 0);
+
+}
+
+.nav-btn:hover::before{
+    background: rgb(255, 255, 255, .4);
+    height: 100%;
+    width: 100%;
+}
+
+/* contact page */
+
+.card{
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    padding: 2rem 1.5rem;
+}
+
+.contact .card{
+    min-width: 80%;
+    max-width: 90%;
+    margin: 2rem auto;
+    width: 700px;
+    min-height: 70vh;
+}
+
+.card img{
+    max-width: 460px; 
+    margin: auto;
+    width: 100%;
+}
+
+.contact form label{
+    display: block;
+    width: 100%;
+} 
+
+/* profile banner */ 
+
+.user-img{
+    width: 500;
+    height: 500;
+    object-fit: cover;
+    border-radius: 10%;
+    overflow: hidden;
+}
+
+.profile-content{
+    max-width: 90%;
+    margin: 1rem auto;
+    width: 360px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.profile-content h2{
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.profile-content p{
+    margin-bottom: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 20px;
+    color: white;
+    font-size: 15px;
+}
+
+.profile-banner  ul{
+    padding: .4rem 1.2rem;
+}
+
+.profile-banner  ul li{
+    color: white;
+}
+.profile-banner1{
+    background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0)), url(./img/Saravana.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: fixed;
+    overflow: auto;
+    width: 100%;
+    height: 100vh;
+    z-index: -10;
+}
+.profile-banner2{
+    background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0)), url(./img/Arjun.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: fixed;
+    overflow: auto;
+    width: 100%;
+    height: 100vh;
+    z-index: -10;
+}
+.profile-banner3{
+    background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0)), url(./img/Supriya.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: fixed;
+    overflow: auto;
+    width: 100%;
+    height: 100vh;
+    z-index: -10;
+}
+.profile-banner4{
+    background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0)), url(./img/Shimon.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: fixed;
+    overflow: auto;
+    width: 100%;
+    height: 100vh;
+    z-index: -10;
+}
+
+@media screen and (max-width: 800px){
+    .flex{
+        flex-direction: column;
+    }
+
+    .hide-on-med-and-down{
+        display: none;
+    }
+
+    .flex > div{
+        margin: .5rem 0;
+    }
+
+    .profile-banner > div{
+        margin: 0!important;
+        padding: 2rem 0;
+    }
+
+    .profile-banner{
+        display: block;
+    }
+    
+}
+
+.avatar {
+  vertical-align: middle;
+   max-width: 20rem;
+    max-height: 20rem;
+    border: 0.5rem solid rgba(255, 255, 255, 0.2);
+}
